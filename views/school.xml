@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        
+        <!-- Form Structure that define in school.py -->
+        <record id="school_form_view" model="ir.ui.view">
+            <field name="name">Student</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="roll_no" />
+                            <field name="age" />
+                            <field name="photo" />
+                            <field name="gender" />
+                            <field name="student_dob" />
+                            <field name="student_blood_group" />
+                            <field name="nationality" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            
+        </record>
+        
+        <!-- Form Action when form gets submit -->
+        
+        <record id="school_action_new" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">student.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Add a new account
+            </p>
+                <p>
+                    An account is part of a ledger allowing your company
+                    to register all kinds of debit and credit transactions.
+                </p>
+            </field>
+        </record>
+        <!-- <record id="student_menu_action" model="ir.actions.act_window">
+                    <field name="name">Students</field>
+                    <field name="res_model">student.student</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form</field>
+                    <field name="domain">[]</field>
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create">Create The First Student
+                        </p>
+                    </field>
+                </record> -->
+        <!-- ______________________________________________ -->
+        <!-- To show the action need menu -->
+        <!-- To show the form -->
+        
+        <!-- Parent Menue -->
+        <menuitem name="School" id="school_parent_menue" />
+        
+        <menuitem name="classroom" parent="school_parent_menue" action="school_action_new" id="class_menue_id" />
+        <!-- <menuitem id="school_menu" name="School" />
+        <menuitem id="school_student_menu" parent="school_menu" name="Student" action="student_menu_action" /> -->
+        
+    </data>
+</odoo>
